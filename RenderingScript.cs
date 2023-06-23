@@ -87,61 +87,8 @@ public class RenderingScript : MonoBehaviour
             hour += 1;
             minute = 0;
         }
-        if (hour > 17) 
-        {
-            sky_c[0] += 0.000005f * Time.timeScale;
-            sky_c[1] -= 0.000005f * Time.timeScale;
-            sky_c[2] -= 0.000005f * Time.timeScale;
-            exposure_sky -= 0.000035f * Time.timeScale;
-            DirectionLight.intensity -= 0.000001f * Time.timeScale;
-         
-        }
-        if (hour > 21) 
-        {
-            sky_c[0] -= 0.00005f * Time.timeScale;
-            sky_c[1] -= 0.00005f * Time.timeScale;
-            sky_c[2] -= 0.00005f * Time.timeScale;
-        }
 
-        if (hour == 24)
-        {
-            hour = 0;
-            
-
-        }
-        if (hour > 0) 
-        {
-            exposure_sky += 0.000005f * Time.timeScale;
-            
-
-            if (exposure_sky >= 1.5f) 
-            {
-                exposure_sky = 1.5f;
-            }
-           
-        }
-        //SKY COLOR PROPERTIES//
         
-        if (sky_c[0] == 0.75f && hour >20)
-        {
-            sky_c[0] = 0.75f;
-        }
-        if (sky_c[0] > 0.35f && hour > 22)
-        {
-            sky_c[0] = 0.2f;
-        }
-
-        if (sky_c[1] <= 0.25f && hour > 21)
-        {
-            sky_c[1] = 0.2f;
-        }
-        if (sky_c[2] <= 0.2f && hour > 21)
-        {
-            sky_c[2] = 0.2f;
-        }
-        
-
-
         ///WEATHER PROPERTIES///
         ///
         RenderSettings.fogColor = Atmosphere_color;
@@ -154,7 +101,7 @@ public class RenderingScript : MonoBehaviour
         if (weatherRandomizer == 1000)
         {
             
-            wind_main = 2.5f;
+            wind_main = 1.9f;
             wind_turbulence = 1.25f;
             wind_pulse_magnitude = 1.25f;
             wind_pulse_frequency = 1f;
@@ -162,16 +109,16 @@ public class RenderingScript : MonoBehaviour
         else if (weatherRandomizer == 20000)
         {
            
-            wind_main = 2f;
-            wind_turbulence = .5f;
+            wind_main = 1.7f;
+            wind_turbulence = 1.5f;
             wind_pulse_magnitude = 1.5f;
             wind_pulse_frequency = 1.2f;
         }
         else if(weatherRandomizer == 40000)
         {
            
-            wind_main = 1.5f;
-            wind_turbulence = 1.5f;
+            wind_main = 1.6f;
+            wind_turbulence = 1.3f;
             wind_pulse_magnitude = 1.5f;
             wind_pulse_frequency = 0.95f;
         }
